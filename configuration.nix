@@ -61,7 +61,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
+  #services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -93,9 +93,10 @@
   services.fprintd.enable = true;
 
   security.pam.services = {
-  login.fprintAuth = true;
-  sudo.fprintAuth = true;
-  kde.fprintAuth = pkgs.lib.mkForce true;
+    login.fprintAuth = true;
+    sudo.fprintAuth = true;
+    #kde.fprintAuth = pkgs.lib.mkForce true;
+    sddm.fprintAuth = pkgs.lib.mkForce true;
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
