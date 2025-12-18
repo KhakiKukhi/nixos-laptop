@@ -43,6 +43,20 @@
     LC_TIME = "nl_NL.UTF-8";
   };
 
+  # enable virtualisation
+  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd.qemu.swtpm.enable = true;
+
+  virtualisation.libvirtd.qemu = {
+    package = pkgs.qemu_kvm;
+    runAsRoot = false;
+  };
+
+  virtualisation.libvirtd.allowedBridges = [ ];
+  virtualisation.libvirtd.qemu.ovmf.enable = true;
+
+
+
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
@@ -85,7 +99,7 @@
   users.users.khakikukhi = {
     isNormalUser = true;
     description = "KhakiKukhi";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird

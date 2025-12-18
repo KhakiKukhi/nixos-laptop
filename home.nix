@@ -13,6 +13,7 @@
 	home.packages = [
 		pkgs.blesh
 		pkgs.opera
+		pkgs.virt-manager
 	];
 
 	home.file.".local/bin/nixpush".source = ./scripts/nixpush.sh;
