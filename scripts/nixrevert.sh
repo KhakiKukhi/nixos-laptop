@@ -5,7 +5,7 @@ cd /etc/nixos
 
 case "$1" in
   "")
-    if ! sudo git diff --quiet || ! sudo git diff --cached --quiet; then
+    if ! git diff --quiet || ! git diff --cached --quiet; then
       echo "Error: /etc/nixos has uncommitted changes."
       echo "Refusing to revert."
       echo
@@ -32,8 +32,8 @@ case "$1" in
 
     echo "Hard reverting /etc/nixos…"
 
-    sudo git reset --hard HEAD
-    sudo git clean -fd
+    git reset --hard HEAD
+    git clean -fd
 
     echo "Hard revert complete."
     echo "Run 'nixrebuild' to apply the reverted configuration."
