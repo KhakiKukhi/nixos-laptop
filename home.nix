@@ -12,6 +12,7 @@
 
 	home.file.".local/bin/nixpush".source = ./scripts/nixpush.sh;
 	home.file.".local/bin/nixstatus".source = ./scripts/nixstatus.sh;
+	home.file.".local/bin/nixrebuild".source = ./scripts/nixrebuild.sh;
 
 #====================================================================
 
@@ -25,7 +26,6 @@
       			ga = "git add";
       			gc = "git commit";
       			gp = "git push";
-    			nixrebuild = "sudo nixos-rebuild switch --flake /etc/nixos#laptop";
    		};
    
     		bashrcExtra = ''
