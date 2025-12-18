@@ -10,7 +10,8 @@
 		pkgs.blesh
 	];
 
-	home.file.".local/bin/nixpush".source = ./scripts/nixpush;
+	home.file.".local/bin/nixpush".source = ./scripts/nixpush.sh;
+	home.file.".local/bin/nixstatus".source = ./scripts/nixstatus.sh;
 
 #====================================================================
 
