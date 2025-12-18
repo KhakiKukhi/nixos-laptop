@@ -5,6 +5,10 @@
 	home.homeDirectory = "/home/khakikukhi";
 
 	home.stateVersion = "24.05";
+	
+	home.sessionPath = [
+  		"$HOME/.local/bin"
+	];
 
 	home.packages = [
 		pkgs.blesh
@@ -13,6 +17,7 @@
 	home.file.".local/bin/nixpush".source = ./scripts/nixpush.sh;
 	home.file.".local/bin/nixstatus".source = ./scripts/nixstatus.sh;
 	home.file.".local/bin/nixrebuild".source = ./scripts/nixrebuild.sh;
+	home.file.".local/bin/nixrvert".source = ./scripts/nixrevert.sh;
 
 #====================================================================
 
