@@ -18,6 +18,7 @@
 	home.file.".local/bin/nixstatus".source = ./scripts/nixstatus.sh;
 	home.file.".local/bin/nixrebuild".source = ./scripts/nixrebuild.sh;
 	home.file.".local/bin/nixrvert".source = ./scripts/nixrevert.sh;
+	home.file.".local/bin/nixhistory".source = ./scripts/nixhistory.sh;
 
 #====================================================================
 
