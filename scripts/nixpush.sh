@@ -16,5 +16,13 @@ else
   echo "No new changes to commit; pushing preexisting changes..."
 fi
 
-git push
+if ! git push 2> >(tee /tmp/nixpush.err >&2); then
+  if grep -q "Permission denied (publickey)" /tmp/nixpush.err; then
+    echo
+    echo "Hint: SSH authentication failed."
+    echo "If you ran this via sudo, try:"
+    echo "  sudo -E nixpush"
+  fi
+  exit 1
+fi
 
