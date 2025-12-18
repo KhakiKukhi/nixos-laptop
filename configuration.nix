@@ -56,6 +56,8 @@
     layout = "us";
     variant = "";
   };
+  
+  services.power-profiles-daemon.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
