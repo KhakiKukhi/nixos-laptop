@@ -1,40 +1,54 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "khakikukhi";
-  home.homeDirectory = "/home/khakikukhi";
+	home.username = "khakikukhi";
+	home.homeDirectory = "/home/khakikukhi";
 
-  home.stateVersion = "24.05";
+	home.stateVersion = "24.05";
 
-  programs.bash = {
-    enable = true;
+	home.packages = [
+		pkgs.blesh
+	];
+
+	home.file.".local/bin/nixpush".source = ./scripts/nixpush;
+
+#====================================================================
+
+	programs.bash = {
+		enable = true;
+		enableCompletion = true;
     
-    shellAliases = {
-      ll = "ls -lah";
-      gs = "git status";
-      ga = "git add";
-      gc = "git commit";
-      gp = "git push";
-      
-      nixrebuild = "sudo nixos-rebuild switch --flake /etc/nixos#laptop";
-    };
+		shellAliases = {
+			ll = "ls -lah";
+      			gs = "git status";
+      			ga = "git add";
+      			gc = "git commit";
+      			gp = "git push";
+    			nixrebuild = "sudo nixos-rebuild switch --flake /etc/nixos#laptop";
+   		};
    
-    bashrcExtra = ''
-      export EDITOR=vim
-      export HISTCONTROL=ignoredups:erasedups
-      export HISTSIZE=10000
-      export HISTFILESIZE=20000
+    		bashrcExtra = ''
+      			# fancy bash
+			source ${pkgs.blesh}/share/blesh/ble.sh
+			
+			export EDITOR=vim
+      			export HISTCONTROL=ignoredups:erasedups
+      			export HISTSIZE=10000
+      			export HISTFILESIZE=20000
       
-      # nicer prompt (simple, readable)
-      PS1="[\u@\h \W]\\$ "
-    '';
-  };
+      			# nicer prompt (simple, readable)
+      			PS1="[\u@\h \W]\\$ "
+    		'';
+  	};
 
-  programs.ssh = {
-    enable = true;
-    addKeysToAgent = "yes";
-  };
+  	programs.ssh = {
+    		enable = true;
+    		addKeysToAgent = "yes";
+  	};
 
-  services.ssh-agent.enable = true;
+
+#====================================================================
+
+  	services.ssh-agent.enable = true;
 
 }
