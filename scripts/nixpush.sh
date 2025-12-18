@@ -1,14 +1,23 @@
 #!/usr/bin/env bash
 set -e
 
-if [ "$1" != "-m" ] || [ -z "$2" ]; then
-  echo "Usage: nixpush -m \"commit message\""
-  exit 1
-fi
-
 cd /etc/nixos
 
-sudo git add -A
-sudo git commit -m "$2" || echo "Nothing new to commit. Pushing preexisting committs..."
+# Check if there are uncommitted changes
+if ! sudo git diff --quiet || ! sudo git diff --cached --quiet; then
+  # There ARE changes → require commit message
+  if [ "$1" != "-m" ] || [ -z "$2" ]; then
+    echo "Error: uncommitted changes present."
+    echo "Usage: nixpush -m \"commit message\""
+    exit 1
+  fi
+
+  sudo git add -A
+  sudo git commit -m "$2"
+else
+  echo "No new changes to commit; pushing preexisting changes..."
+fi
+
+# Always attempt to push
 sudo -E git push
 
