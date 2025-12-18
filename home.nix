@@ -12,6 +12,7 @@
 
 	home.packages = [
 		pkgs.blesh
+		pkgs.opera
 	];
 
 	home.file.".local/bin/nixpush".source = ./scripts/nixpush.sh;
