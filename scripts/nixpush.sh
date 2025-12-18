@@ -9,6 +9,6 @@ fi
 cd /etc/nixos
 
 sudo git add -A
-sudo git commit -m "$2"
+sudo git commit -m "$2" || echo "Nothing new to commit. Pushing preexisting committs..."
 sudo -E git push
 
