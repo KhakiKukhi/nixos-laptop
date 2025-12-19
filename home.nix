@@ -22,6 +22,7 @@
 	home.file.".local/bin/nixrebuild".source = ./scripts/nixrebuild.sh;
 	home.file.".local/bin/nixrevert".source = ./scripts/nixrevert.sh;
 	home.file.".local/bin/nixhistory".source = ./scripts/nixhistory.sh;
+	home.file.".local/bin/nixupdate".source = ./scripts/nixupdate.sh;
 
 #====================================================================
 
