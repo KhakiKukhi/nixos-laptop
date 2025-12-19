@@ -24,6 +24,8 @@
 	home.file.".local/bin/nixhistory".source = ./scripts/nixhistory.sh;
 	home.file.".local/bin/nixupdate".source = ./scripts/nixupdate.sh;
 
+	# shorthands
+	# not important
 	home.file.".local/bin/npu".source = config.home.file.".local/bin/nixpush".source;
 	home.file.".local/bin/nst".source = config.home.file.".local/bin/nixstatus".source;
 	home.file.".local/bin/nrb".source = config.home.file.".local/bin/nixrebuild".source;
