@@ -24,6 +24,13 @@
 	home.file.".local/bin/nixhistory".source = ./scripts/nixhistory.sh;
 	home.file.".local/bin/nixupdate".source = ./scripts/nixupdate.sh;
 
+	home.file.".local/bin/npu".source = config.home.file.".local/bin/nixpush".source;
+	home.file.".local/bin/nst".source = config.home.file.".local/bin/nixstatus".source;
+	home.file.".local/bin/nrb".source = config.home.file.".local/bin/nixrebuild".source;
+	home.file.".local/bin/nrv".source = config.home.file.".local/bin/nixrevert".source;
+	home.file.".local/bin/nhi".source = config.home.file.".local/bin/nixhistory".source;
+	home.file.".local/bin/nup".source = config.home.file.".local/bin/nixupdate".source;
+
 #====================================================================
 
 	programs.bash = {
