@@ -43,6 +43,8 @@
     LC_TIME = "nl_NL.UTF-8";
   };
 
+  boot.kernelParams = [ "mem_sleep_default=deep" ];
+
   # enable virtualisation
   virtualisation.libvirtd.enable = true;
   virtualisation.libvirtd.qemu.swtpm.enable = true;
@@ -130,10 +132,6 @@
 	# base packages
 	vim
 	git
-
-	# user packages
-
-	# themes
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
