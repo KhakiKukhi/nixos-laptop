@@ -14,6 +14,7 @@
 		pkgs.blesh
 		pkgs.opera
 		pkgs.virt-manager
+		pkgs.keychain
 	];
 
 	home.file.".local/bin/nixpush".source = ./scripts/nixpush.sh;
@@ -39,6 +40,9 @@
     		bashrcExtra = ''
       			# fancy bash
 			source ${pkgs.blesh}/share/blesh/ble.sh
+
+			# SSH agent via keychain
+			eval "$(keychain --eval --quiet id_ed25519)"
 			
 			export EDITOR=vim
       			export HISTCONTROL=ignoredups:erasedups
@@ -52,12 +56,12 @@
 
   	programs.ssh = {
     		enable = true;
-    		addKeysToAgent = "yes";
+    		#addKeysToAgent = "yes";
   	};
 
 
 #====================================================================
 
-  	services.ssh-agent.enable = true;
+  	#services.ssh-agent.enable = true;
 
 }
