@@ -23,6 +23,8 @@
 	home.file.".local/bin/nixrevert".source = ./scripts/nixrevert.sh;
 	home.file.".local/bin/nixhistory".source = ./scripts/nixhistory.sh;
 	home.file.".local/bin/nixupdate".source = ./scripts/nixupdate.sh;
+	home.file.".local/bin/nixclean".source = ./scripts/nixclean.sh;
+	home.file.".local/bin/nixmerge".source = ./scripts/nixmerge.sh;
 
 	# shorthands
 	# not important
@@ -32,6 +34,8 @@
 	home.file.".local/bin/nrv".source = config.home.file.".local/bin/nixrevert".source;
 	home.file.".local/bin/nhi".source = config.home.file.".local/bin/nixhistory".source;
 	home.file.".local/bin/nup".source = config.home.file.".local/bin/nixupdate".source;
+	home.file.".local/bin/ncl".source = config.home.file.".local/bin/nixclean".source;
+	home.file.".local/bin/nmg".source = config.home.file.".local/bin/nixmerge".source;
 
 #====================================================================
 
