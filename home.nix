@@ -15,6 +15,8 @@
 		pkgs.opera
 		pkgs.virt-manager
 		pkgs.keychain
+		pkgs.jetbrains-toolbox
+		pkgs.unrar
 	];
 
 	home.file.".local/bin/nixpush".source = ./scripts/nixpush.sh;

@@ -78,7 +78,10 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  services.openssh.enable = true;
+  services.openssh.settings = {
+    PasswordAuthentication = true;
+    KdbInteractiveAuthentication = true;
+  };
 
   # Enable sound with pipewire.
   #services.pulseaudio.enable = false;
