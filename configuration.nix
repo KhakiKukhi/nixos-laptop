@@ -27,6 +27,7 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
+  services.timesyncd.enable = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -78,9 +79,10 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  services.openssh.enable = true;
   services.openssh.settings = {
     PasswordAuthentication = true;
-    KdbInteractiveAuthentication = true;
+    KbdInteractiveAuthentication = true;
   };
 
   # Enable sound with pipewire.
